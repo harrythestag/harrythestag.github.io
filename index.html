@@ -1,56 +1,134 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="stylesheet.css">
+    <title>Art Gallery</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
-<body>
-<!--
-    <div class="box_left" style="background-color: rgb(4, 9, 24);">
-        <div class="box_right" style="background-color: rgb(61, 5, 5);"></div>
+<body onload="loadContent('home')">
+<div class="content-wrap">
+
+    <div id="overlay" onclick="hideOverlay(event)">
+        <img id="overlay-image" src="" alt="Overlay Image">
     </div>
-    <div class="box_left" style="background-color: rgb(61, 5, 5); height: 10px;">
-        <div class="box_right" style="background-color: rgb(4, 9, 24); height: 10px;"></div>
+
+    <div id="header">
+        <div id="first-line">
+            <div class="red-square"></div>
+            <h1><span>Reinhard Dellert</span></h1>
+        </div>
+        <div class="line" style="margin-top: -40px">
+            <div class="blue-part"></div>
+            <div class="red-part"></div>
+        </div>
+        <div id="second-line">
+            <div class="red-square" style="align-self: center; margin-right: 150px; height: 50px; width: 50px;"></div>
+            <h2><span><span style="margin-right: 150px;">Malerei</span><span>Kunst</span></span></h2>
+        </div>
+        <div class="line">
+            <div class="red-part"></div>
+        </div>
     </div>
-    <div class="box_left" style="background-color: rgb(4, 9, 24);">
-        <h1 style="float: left; ">Malerei</h1>
-        <div class="box_right" style="background-color: rgb(61, 5, 5);"></div>
+    <div id="menu">
+        <div class="menu-item" onclick="loadContent('home')">
+            <div class="red-square-small"></div>
+            <span>Home</span>
+        </div>
+        <div class="menu-item" onclick="loadContent('news')">
+            <div class="red-square-small"></div>
+            <span>News</span>
+        </div>
+        <div class="menu-item" onclick="loadContent('gallery')">
+            <div class="red-square-small"></div>
+            <span>Gallery</span>
+        </div>
+        <div class="menu-item" onclick="loadContent('contact')">
+            <div class="red-square-small"></div>
+            <span>Contact</span>
+        </div>
     </div>
-    <div class="box_left" style="background-color: rgb(61, 5, 5); height: 10px;">
-        <div class="box_right" style="background-color: rgb(4, 9, 24); height: 10px;"></div>
+
+    <div id="content"></div>
+</div>
+
+    <div id="gallery" style="display: none;">
+        <div id="intro">
+            <h3>Kunstgallerie</h3>
+            <div class="line">
+                <div class="blue-part" style="width: 100%;"></div>
+            </div>
+        </div>
+        <div class="images">    
+            <div class="image-container">
+                <img src="images/im1.jpg" alt="Image 1" onclick="showOverlay(this.src)">
+                <h5>People doing Karate</h5>
+                <p class="image-description" data-full-description="This is a full description of the image. It's quite long, so we only want to show the first few characters by default."></p>
+            </div>
+            <div class="image-container">
+                <img src="images/im2.jpg" alt="Image 2" onclick="showOverlay(this.src)">
+                <h5>Tres bon</h5>
+                <p class="image-description" data-full-description="This is a full description of the image. It's quite long, so we only want to show the first few characters by default.">This is a full...</p>
+            </div>
+            <div class="image-container">
+                <img src="images/im3.jpg" alt="Image 3" onclick="showOverlay(this.src)">
+                <h5>They look friendly</h5>
+                <p class="image-description" data-full-description="This is a full description of the image. It's quite long, so we only want to show the first few characters by default.">This is a full...</p>
+            </div>
+            <div class="image-container">
+                <img src="images/im4.jpg" alt="Image 4" onclick="showOverlay(this.src)">
+                <h5>Don't do it Omma!</h5>
+                <p class="image-description" data-full-description="This is a full description of the image. It's quite long, so we only want to show the first few characters by default.">This is a full...</p>
+            </div>
+            <div class="image-container">
+                <img src="images/im5.jpeg" alt="Image 5" onclick="showOverlay(this.src)">
+                <h5>KI Einstein?</h5>
+                <p class="image-description" data-full-description="This is a full description of the image. It's quite long, so we only want to show the first few characters by default.">This is a full...</p>
+            </div>
+            <div class="image-container">
+                <img src="images/im6.jpg" alt="Image 6" onclick="showOverlay(this.src)">
+                <h5>Rich boss cat</h5>
+                <p class="image-description" data-full-description="This is a full description of the image. It's quite long, so we only want to show the first few characters by default.">This is a full...</p>
+            </div>
+            <div class="image-container">
+                <img src="images/im7.jpg" alt="Image 7" onclick="showOverlay(this.src)">
+                <h5>The World</h5>
+                <p class="image-description" data-full-description="This is a full description of the image. It's quite long, so we only want to show the first few characters by default.">This is a full...</p>
+            </div>
+        </div>
+        <!-- Repeat for each image -->
     </div>
-    <div class="box_left" style="background-color: rgb(4, 9, 24);">
-        <h1 style="float: left; margin-left: 60; margin-left: 60%">Kunst</h1>
-        <div class="box_right" style="background-color: rgb(61, 5, 5);"></div>
+
+    <div id="home" style="display: none;">
+        <h6>The home page</h6>
+        <!-- About information goes here -->
     </div>
--->
     
+    <div id="news" style="display: none;">
+        The news page
+        <!-- About information goes here -->
+    </div>
 
+    <div id="contact" style="display: none;">
+        The Contact Page
+        <!-- Contact form goes here -->
+    </div>
 
-<!---flexbox-->
+    <div class="footer">
+        <div class="footer-column">
+            <p>Vorname Nachname</p>
+            <p>Im Langenweg 8</p>
+            <p>123456 Hausen</p>
+            <p>mail@address.com</p>
+        </div>
+        <div class="footer-column">
+            <img src="images/signature.png" alt="Logo" style="max-height: 70px;">
+        </div>
+        <div class="footer-column">
+            <p><u>Disclaimer:</u> The artwork displayed on this page are created by &#169; Vorname Nachname, 2024</p>
+            <p>If you want to see these artworks live, please visit an exhibition.</p>
+            <p>If you are interested in buying one of the artworks, feel free to contact the creator.</p>
+        </div>
+    </div>
 
-<div class="container_large">
-    <span class="blue_large">
-    <span class="red_large">
-</div>
-<div class="container_slim">
-    <span class="red_slim">
-    <span class="blue_slim">
-</div>
-<div class="container_large">
-    <span class="blue_large">
-    <span class="red_large">
-</div>
-<div class="container_slim">
-    <span class="red_slim">
-    <span class="blue_slim">
-</div>
-<div class="container_large">
-  <span class="blue_large">
-    <div class="ue">xxx</div>
-  </span>
-    <span class="red_large">
-</div>
-
-
+    <script src="script.js"></script>
 </body>
-</html> 
+</html>
